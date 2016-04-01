@@ -28,13 +28,14 @@ def getAccessToken(url, client_id, client_secret):
 def getLocations(url, access_token, params):
 	query_params = urllib.urlencode(params)
 	api_call_url = url + "?" + query_params;
+	headers      = ['Authorization: Bearer '+ access_token]
 
 	storage = StringIO.StringIO()
 	curl    = pycurl.Curl()
 
 	# Set options 
 	curl.setopt(pycurl.URL, api_call_url)
-	curl.setopt(pycurl.HTTPHEADER, ['Authorization: Bearer']) # CURLOPT_HTTPHEADER in PHP
+	curl.setopt(pycurl.HTTPHEADER, headers) # CURLOPT_HTTPHEADER in PHP
 	curl.setopt(pycurl.WRITEFUNCTION, storage.write)
 
 	curl.perform()
