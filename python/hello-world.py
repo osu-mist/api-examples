@@ -1,15 +1,15 @@
 import json
 import pycurl
 import urllib
-import StringIO  
+import StringIO
 
 def getAccessToken(url, client_id, client_secret):
 	post_data = "client_id=" + client_id + "&client_secret=" + client_secret + "&grant_type=client_credentials"
-	
+
 	storage = StringIO.StringIO()
 	curl    = pycurl.Curl()
 
-	# Set options 
+	# Set options
 	curl.setopt(pycurl.URL, url)                     # CURLOPT_URL in PHP
 	curl.setopt(pycurl.POST, 1)                      # CURLOPT_POST in PHP
 	curl.setopt(pycurl.POSTFIELDS, post_data)        # CURLOPT_POSTFIELDS in PHP
@@ -17,7 +17,7 @@ def getAccessToken(url, client_id, client_secret):
 
 	# Send the request and save response
 	curl.perform()
-	
+
 	# Close request to clear up some resources
 	curl.close()
 
@@ -33,7 +33,7 @@ def getLocations(url, access_token, params):
 	storage = StringIO.StringIO()
 	curl    = pycurl.Curl()
 
-	# Set options 
+	# Set options
 	curl.setopt(pycurl.URL, api_call_url)
 	curl.setopt(pycurl.HTTPHEADER, headers) # CURLOPT_HTTPHEADER in PHP
 	curl.setopt(pycurl.WRITEFUNCTION, storage.write)
