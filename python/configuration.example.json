@@ -3,7 +3,7 @@
 	"version": "v1",
 
 	"api": "/locations",
-	
+
 	"token_endpoint": "/token",
 	"locations_endpoint": "/",
 
