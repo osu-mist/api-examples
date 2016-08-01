@@ -13,7 +13,7 @@ gem install json
 
 Rename `configuration.example.json` as `configuration.json`, and update client_id and client_secret.
 
-(Click here to register an app)[https://developer.oregonstate.edu/]
+[Click here to register an app](https://developer.oregonstate.edu/)
 
 ### Run it
 
