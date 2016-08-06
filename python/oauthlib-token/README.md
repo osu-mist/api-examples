@@ -7,10 +7,10 @@ In order to make sure users can get valid APIs access token through OAuth2 with 
 
 2. [OAuthLib](https://github.com/idan/oauthlib), which is also a very popular OAuth2 library.
 
-#### Results
+## Results
 ------------
 
-##### [python-oauth2](https://github.com/joestump/python-oauth2)
+### [python-oauth2](https://github.com/joestump/python-oauth2)
 
 ```python
 import oauth2 as oauth
@@ -28,7 +28,7 @@ print client.request(ACCESS_TOKEN_URL, method="POST", headers="Content-Type: app
 
 Since the `Client` class of python-oauth2 is implemented from `httplib2`, it caused the [TLS SNI issue](https://github.com/kennethreitz/requests/issues/749) (Server presented certificate that does not match host api.oregonstate.edu). Therefore, this library will not be recommended to communicate with our APIs.
 
-##### [OAuthLib](https://github.com/idan/oauthlib): [sample code link](oauthlib-token.py)
+### [OAuthLib](https://github.com/idan/oauthlib): [sample code link](oauthlib-token.py)
 
 This library works correctly as expected. Since our APIs provide `getAccessToken` methods with **client_credential** grant type to allow users getting access tokens, we can use the [BackendApplicationClient](https://oauthlib.readthedocs.io/en/latest/oauth2/clients/backendapplicationclient.html) of OAuthLib to create a client object utilizing the client credentials grant workflow.
 
