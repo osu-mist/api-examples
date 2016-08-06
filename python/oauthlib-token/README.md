@@ -8,7 +8,6 @@ In order to make sure users can get valid APIs access token through OAuth2 with 
 2. [OAuthLib](https://github.com/idan/oauthlib), which is also a very popular OAuth2 library.
 
 ## Results
-------------
 
 ### [python-oauth2](https://github.com/joestump/python-oauth2)
 
