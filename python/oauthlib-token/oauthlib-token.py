@@ -23,7 +23,7 @@ def getResponse(token, params, api_url):
 	return requests.get(api_call_url, headers={'Authorization': token})
 
 
-config_file = open("configuration_example.json")
+config_file = open("configuration.json")
 config_data = json.load(config_file)
 
 base_url  = config_data["hostname"] + config_data["version"] + config_data["api"]

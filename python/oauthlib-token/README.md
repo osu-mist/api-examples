@@ -27,8 +27,15 @@ print client.request(ACCESS_TOKEN_URL, method="POST", headers="Content-Type: app
 
 Since the `Client` class of python-oauth2 is implemented from `httplib2`, it caused the [TLS SNI issue](https://github.com/kennethreitz/requests/issues/749) (Server presented certificate that does not match host api.oregonstate.edu). Therefore, this library will not be recommended to communicate with our APIs.
 
-### [OAuthLib](https://github.com/idan/oauthlib): [sample code link](oauthlib-token.py)
+### [OAuthLib](https://github.com/idan/oauthlib): [sample code](oauthlib-token.py)
 
 This library works correctly as expected. Since our APIs provide `getAccessToken` methods with **client_credential** grant type to allow users getting access tokens, we can use the [BackendApplicationClient](https://oauthlib.readthedocs.io/en/latest/oauth2/clients/backendapplicationclient.html) of OAuthLib to create a client object utilizing the client credentials grant workflow.
 
 However, there is one minor issue we should take care of. The `token_type` we got from the response will be `BearerToken`, instead of the correct format: `Bearer`.
+
+#### Usage
+
+1. The dependencies can be installed by using pip:
+`pip install requests requests_oauthlib oauthlib`
+2. Modify [configuration_example.json](configuration_example.json) file as needed, and rename it as `configuration.json`
+3. Execute `python oauthlib-token.py` to run the program.
