@@ -18,8 +18,8 @@ CONSUMER_KEY     = "consumer_key"
 CONSUMER_SECRET  = "consumer_secret"
 ACCESS_TOKEN_URL = "https://api.oregonstate.edu/<API-ENDPOINT>/token"
 
-consumer          = oauth.Consumer(key=CONSUMER_KEY, secret=CONSUMER_SECRET)
-client            = oauth.Client(consumer)
+consumer = oauth.Consumer(key=CONSUMER_KEY, secret=CONSUMER_SECRET)
+client   = oauth.Client(consumer)
 
 print client.request(ACCESS_TOKEN_URL, method="POST", headers="Content-Type: application/x-www-form-urlencoded;charset=utf-8")
 
