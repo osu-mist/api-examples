@@ -39,3 +39,12 @@ However, there is one minor issue we should take care of. The `token_type` we go
 `pip install requests requests_oauthlib oauthlib`
 2. Modify [configuration_example.json](configuration_example.json) file as needed, and rename it as `configuration.json`
 3. Execute `python oauthlib-token.py` to run the program.
+
+## FAQ
+
+###  How to solve the SNI missing issue?
+
+If you get an error of "requests.exceptions.SSLError: hostname 'api.oregonstate.edu' doesn't match either of '*.apigee.net' and 'apigee.net'", it's most likely because the version of Python you use doesn't have the SNI support. With SNI, which is an extension of TLS/SSL, multiple HTTPS targets can be served off the same IP address and port without requiring all those targets to use the same certificate. However, not all clients support SNI, specifically for Python, it's supported in 2.x from 2.7.9rc1 and 3.x from 3.2alpha4 (in ssl, urllib[2] and httplib modules).
+
+For more information on Apigee SNI Support, see [Apigee SNI support](http://docs.apigee.com/release-notes/content/150415-apigee-edge-cloud-release-notes#newfeaturesandenhancements-servernameindicationsnisupport). And for more information on SNI, see [SNI Wiki](https://www.wikiwand.com/en/Server_Name_Indication)
+and [Server Name Indication](https://https.cio.gov/sni/)
